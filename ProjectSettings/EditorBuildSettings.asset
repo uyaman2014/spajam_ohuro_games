@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Calendar.unity
+    guid: cb65875580f1df745af99fa26e950295
+  - enabled: 1
+    path: Assets/Scenes/CharacterMessage.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelect.unity
+    guid: 7e8d5c0d2dc87744e97d3ab8e980de5c
+  - enabled: 1
+    path: Assets/Scenes/Dialy.unity
+    guid: 6c380d0eb62daca45ad0dffc90f1b290
+  - enabled: 1
+    path: Assets/Scenes/EmotionGraph.unity
+    guid: afd5244685dee4d4a9e83531a8cde171
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 1b202ded13ead9846a7e6e6e49e4cdeb
+  - enabled: 1
+    path: Assets/Scenes/OldMessages.unity
+    guid: b32eedebbf078af46a398c3d9309fa80
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: f0e2b74ac0b286f429dfa26350b626c2
   m_configObjects: {}

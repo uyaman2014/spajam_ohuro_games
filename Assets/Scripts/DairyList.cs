@@ -16,16 +16,5 @@ public class DairyList
         }
     }
 
-    public Dictionary<DateTime, string> _dairyList = new Dictionary<DateTime, string>();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Dictionary<string, string> _dairyList = new Dictionary<string, string>();
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: f0e2b74ac0b286f429dfa26350b626c2
+  - enabled: 1
     path: Assets/Scenes/Calendar.unity
     guid: cb65875580f1df745af99fa26e950295
   - enabled: 1
@@ -26,7 +29,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OldMessages.unity
     guid: b32eedebbf078af46a398c3d9309fa80
-  - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: f0e2b74ac0b286f429dfa26350b626c2
   m_configObjects: {}

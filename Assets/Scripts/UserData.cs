@@ -13,5 +13,14 @@ public class UserData
             return _instance;
         }
     }
-    public string UserName;
+    private string _userName;
+    public string UserName
+    {
+        get => _userName; 
+        set
+        {
+            _userName = value;
+            HttpRequestManager.Instance.PostJson.username = value;
+        }
+    }
 }

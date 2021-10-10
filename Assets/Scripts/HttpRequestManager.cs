@@ -33,6 +33,20 @@ public class HttpRequestManager
         }
         IsPosting = false;
     }
+
+    public SummaryListJson SummaryListJson;
+    public bool IsGetting;
+    public async void GetSummary()
+    {
+        IsGetting = true;
+        using (var client = new HttpClient())
+        {
+            var response = await client.GetAsync("http://54.199.253.198:5000/summary");
+            SummaryListJson = JsonUtility.FromJson<SummaryListJson>(await response.Content.ReadAsStringAsync());
+        }
+        IsGetting = false;
+    }
+
 }
 
 [Serializable]
@@ -48,4 +62,17 @@ public class ReplyJson
 {
     public float score;
     public string reply;
+}
+
+[Serializable]
+public class SummaryJson
+{
+    public string date;
+    public float score;
+}
+
+[Serializable]
+public class SummaryListJson
+{
+    public List<SummaryJson> data;
 }

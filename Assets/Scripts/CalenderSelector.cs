@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CalenderSelector : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _leftButton;
+    private MaskableGraphic _leftButton;
     [SerializeField]
-    private GameObject _rightButton;
+    private MaskableGraphic _rightButton;
     [SerializeField]
-    private GameObject _centerButton;
+    private MaskableGraphic _centerButton;
+    [SerializeField]
+    private Text _yearText;
     private bool _isMoveing;
     private float _moveCount = 600;
     [SerializeField]
@@ -38,6 +41,7 @@ public class CalenderSelector : MonoBehaviour
         _leftButton.GetComponent<DayInfomation>().DateTime = DateTime.Today.AddDays(-1);
         _centerButton.GetComponent<DayInfomation>().DateTime = DateTime.Today;
         _rightButton.GetComponent<DayInfomation>().DateTime = DateTime.Today.AddDays(1);
+        _yearText.text = _centerButton.GetComponent<DayInfomation>().DateTime.ToString("yyyy");
     }
 
     private IEnumerator MoveLeft()
@@ -45,12 +49,12 @@ public class CalenderSelector : MonoBehaviour
         for (int i = 0; i < _moveCount / _moveSpeed; i++)
         {
             yield return null;
-            _leftButton.GetComponent<RectTransform>().anchoredPosition -= Vector2.right * _moveSpeed;
-            _rightButton.GetComponent<RectTransform>().anchoredPosition -= Vector2.right * _moveSpeed;
-            _centerButton.GetComponent<RectTransform>().anchoredPosition -= Vector2.right * _moveSpeed;
-            if (_leftButton.GetComponent<RectTransform>().anchoredPosition.x < -700)
+            _leftButton.rectTransform.anchoredPosition -= Vector2.right * _moveSpeed;
+            _rightButton.rectTransform.anchoredPosition -= Vector2.right * _moveSpeed;
+            _centerButton.rectTransform.anchoredPosition -= Vector2.right * _moveSpeed;
+            if (_leftButton.rectTransform.anchoredPosition.x < -700)
             {
-                _leftButton.GetComponent<RectTransform>().anchoredPosition = _rightButton.GetComponent<RectTransform>().anchoredPosition + new Vector2(600, 0);
+                _leftButton.rectTransform.anchoredPosition = _rightButton.rectTransform.anchoredPosition + new Vector2(600, 0);
                 var _rightDay = _rightButton.GetComponent<DayInfomation>().DateTime;
                 _leftButton.GetComponent<DayInfomation>().DateTime = _rightDay.AddDays(1);
                 var tmp = _leftButton;
@@ -60,6 +64,7 @@ public class CalenderSelector : MonoBehaviour
             }
         }
         _isMoveing = false;
+        _yearText.text = _centerButton.GetComponent<DayInfomation>().DateTime.ToString("yyyy");
     }
 
     private IEnumerator MoveRight()
@@ -67,12 +72,12 @@ public class CalenderSelector : MonoBehaviour
         for (int i = 0; i < _moveCount / _moveSpeed; i++)
         {
             yield return null;
-            _leftButton.GetComponent<RectTransform>().anchoredPosition += Vector2.right * _moveSpeed;
-            _rightButton.GetComponent<RectTransform>().anchoredPosition += Vector2.right * _moveSpeed;
-            _centerButton.GetComponent<RectTransform>().anchoredPosition += Vector2.right * _moveSpeed;
-            if (_rightButton.GetComponent<RectTransform>().anchoredPosition.x > 700)
+            _leftButton.rectTransform.anchoredPosition += Vector2.right * _moveSpeed;
+            _rightButton.rectTransform.anchoredPosition += Vector2.right * _moveSpeed;
+            _centerButton.rectTransform.anchoredPosition += Vector2.right * _moveSpeed;
+            if (_rightButton.rectTransform.anchoredPosition.x > 700)
             {
-                _rightButton.GetComponent<RectTransform>().anchoredPosition = _leftButton.GetComponent<RectTransform>().anchoredPosition - new Vector2(600, 0);
+                _rightButton.rectTransform.anchoredPosition = _leftButton.rectTransform.anchoredPosition - new Vector2(600, 0);
                 var leftDay = _leftButton.GetComponent<DayInfomation>().DateTime;
                 _rightButton.GetComponent<DayInfomation>().DateTime = leftDay.AddDays(-1);
                 var tmp = _rightButton;
@@ -82,5 +87,6 @@ public class CalenderSelector : MonoBehaviour
             }
         }
         _isMoveing = false;
+        _yearText.text = _centerButton.GetComponent<DayInfomation>().DateTime.ToString("yyyy");
     }
 }

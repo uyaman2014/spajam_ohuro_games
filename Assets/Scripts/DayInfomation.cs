@@ -24,6 +24,11 @@ public class DayInfomation : MonoBehaviour
 
     public void UpdateText()
     {
-        _text.text = DateTime.Year.ToString() + "\n" + DateTime.Month.ToString() + "/" + DateTime.Day.ToString();
+        _text.text = DateTime.ToString("MMM/d (ddd)");
+    }
+
+    public void SetDayInfomationToManager()
+    {
+        DayInfomationManager.Instance.DateTime = _dateTime;
     }
 }
